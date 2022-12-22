@@ -15,6 +15,7 @@ public class ArrayExamples {
         ls.add(80);
         ls.add(15);
         ls.remove(2);
+        System.out.println("hello");
 
         for(Integer output:ls){
             System.out.println(output);
