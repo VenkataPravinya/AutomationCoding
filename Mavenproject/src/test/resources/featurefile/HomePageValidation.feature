@@ -30,3 +30,7 @@ Feature:Validate login
 @Stale
   Scenario: Exceptions
     Then Handling Stale Element Exception
+
+@Normalize
+  Scenario: Handling normalize spaces
+    Then click on Know more

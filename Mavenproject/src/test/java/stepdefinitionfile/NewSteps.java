@@ -140,4 +140,10 @@ public class NewSteps extends BrowserInvocation {
             e.printStackTrace();
         }
     }
+
+    @Then("click on Know more")
+    public void clickOnKnowMore() {
+
+        driver.findElement(By.xpath("//div[@id='nortonimg1']/div[2]/span[2]/a")).click();
+    }
 }

@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         features = {"src/test/resources/featurefile"},
-        glue = {"stepdefinitionfile"},tags = "@Stale"
+        glue = {"stepdefinitionfile"},tags = "@Normalize"
 )
 public class FeatureRunner {
 
