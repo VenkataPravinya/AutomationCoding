@@ -34,3 +34,7 @@ Feature:Validate login
 @Normalize
   Scenario: Handling normalize spaces
     Then click on Know more
+
+@Cognizant
+  Scenario: Getting values from Cognizant website
+    Then go to Acquisitions and iterate the values under Business column
