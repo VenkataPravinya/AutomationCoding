@@ -16,7 +16,7 @@ import reusable.TextBoxHelper;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.List;
+import java.util.*;
 
 public class NewSteps extends BrowserInvocation {
     private WebDriver driver;
@@ -67,12 +67,17 @@ public class NewSteps extends BrowserInvocation {
     }
 
     @Then("click on cancel button")
-    public void clickOnCancelButton() {
+    public void clickOnCancelButton() throws InterruptedException {
         driver.manage().window().maximize();
-        driver.findElement(By.xpath("//button[@id='confirmButton']")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.cssSelector("#confirmButton")).click();
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.alertIsPresent());
         driver.switchTo().alert().dismiss();
         //String resultText = driver.findElement(By.id("confirmResult")).getText();
         //System.out.println(resultText);
+
+
     }
 
     @Then("click on ok button and send text {string}")
@@ -144,6 +149,50 @@ public class NewSteps extends BrowserInvocation {
     @Then("click on Know more")
     public void clickOnKnowMore() {
 
-        driver.findElement(By.xpath("//div[@id='nortonimg1']/div[2]/span[2]/a")).click();
+        driver.findElement(By.xpath("//a[normalize-space(text())='Know More...']")).click();
+    }
+
+    @Then("iterate the values and check wht Area served is mapped to Worldwide")
+    public void IterateTheValuesInfosys() {
+
+
+        List<String> labels = new ArrayList<String>();
+        List<WebElement> elements = driver.findElements(By.xpath("//th[@class='infobox-label']"));
+        int size = elements.size();
+        for (WebElement output : elements) {
+            labels.add(output.getText());
+        }
+        //String column1 = driver.findElement(By.xpath("//table[@class='infobox vcard']/tbody[1]/tr[5]")).getText();
+        List<String> data = new ArrayList<String>();
+        List<WebElement> dataElements = driver.findElements(By.xpath("//th[@class='infobox-label']/following::td"));
+        for (WebElement outText : dataElements) {
+            data.add(outText.getText());
+        }
+        /*for (String outLabel : labels) {
+            System.out.println(outLabel);
+        }
+        for (String outData : data) {
+            System.out.println(outData);
+        }*/
+
+        HashMap<String,String> hm = new HashMap<>();
+        for(int i=0;i<size;i++){
+            hm.put(labels.get(i), data.get(i));
+
+        }
+
+        for(Map.Entry outMap:hm.entrySet()){
+            System.out.println("--------");
+            System.out.println(outMap.getKey());
+            System.out.println(outMap.getValue());
+            String key = (String) outMap.getKey();
+            if(key.equals("Area served")){
+              Assert.assertEquals("Correctly matched","Worldwide",outMap.getValue());
+                System.out.println("correctly matched");
+            }
+
+        }
+
+
     }
 }

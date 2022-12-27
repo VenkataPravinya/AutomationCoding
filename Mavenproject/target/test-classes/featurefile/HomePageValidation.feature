@@ -35,6 +35,6 @@ Feature:Validate login
   Scenario: Handling normalize spaces
     Then click on Know more
 
-@Cognizant
-  Scenario: Getting values from Cognizant website
-    Then go to Acquisitions and iterate the values under Business column
+@Infosys
+  Scenario: Getting values from Infosys website
+    Then iterate the values and check wht Area served is mapped to Worldwide

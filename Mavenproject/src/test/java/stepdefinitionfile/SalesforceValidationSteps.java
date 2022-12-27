@@ -149,8 +149,6 @@ public void launchSalesforce() throws IOException {
     @Then("iterate the dropdown values")
     public void iterateTheDropdownValues() {
 
-        int currencyDropdownSize = currencyDropdownElement.findElements(By.tagName("option")).size();
-
         List<WebElement> options = currencyDropdownElement.findElements(By.tagName("option"));
         List<String> dropdownValues = new ArrayList<String>();
         for(WebElement output:options){

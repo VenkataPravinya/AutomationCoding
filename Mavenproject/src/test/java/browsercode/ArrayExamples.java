@@ -28,6 +28,7 @@ public class ArrayExamples {
         for(String outString:listString){
             System.out.println(outString);
         }
+
         listString.add("denmark");
         for(String outString:listString){
             System.out.println(outString);

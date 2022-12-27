@@ -34,3 +34,7 @@ Feature:Validate login
 @Normalize
   Scenario: Handling normalize spaces
     Then click on Know more
+
+@Infosys
+  Scenario: Getting values from Infosys website
+    Then iterate the values and check wht Area served is mapped to Worldwide

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="15.331">
+<testcase classname="Validate login" name="Getting values from Infosys website" time="14.834">
+<system-out><![CDATA[Given launch URL............................................................passed
+Then iterate the values and check wht Area served is mapped to Worldwide....passed
+]]></system-out>
+</testcase>
+</testsuite>

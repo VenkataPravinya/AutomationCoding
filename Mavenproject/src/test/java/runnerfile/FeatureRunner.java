@@ -8,7 +8,13 @@ import org.junit.runner.RunWith;
 
 @CucumberOptions(
         features = {"src/test/resources/featurefile"},
-        glue = {"stepdefinitionfile"},tags = "@Normalize"
+        glue = {"stepdefinitionfile"},
+        tags = "@Infosys",
+        monochrome = true,
+        plugin = {"pretty","html:test.output/report.html",
+                "json:test.output/jsonReport.json",
+                "junit:test.output/junitReport.xml"}
+
 )
 public class FeatureRunner {
 

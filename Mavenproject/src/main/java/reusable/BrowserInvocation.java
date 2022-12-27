@@ -46,7 +46,9 @@ public class BrowserInvocation {
             throw new IllegalArgumentException("Pass the valid browser name");
         }*/
 
-        driver.get(prop.getProperty("url"));
+        driver.get("https://en.wikipedia.org/wiki/Infosys");
+
+        //driver.get(prop.getProperty("url"));
         //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         return driver;
 
